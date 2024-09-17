@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>비밀번호 입력</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<div class="g-recaptcha" data-sitekey="6LfpB0cqAAAAALUoLn1hvzA4HfxYvlnuz3JIH0ta"></div>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -52,7 +54,7 @@
     <h2>비밀번호 입력</h2>
     <input type="password" id="password" placeholder="비밀번호를 입력하세요" required>
     <br>
-    <button onclick="checkPassword()">로그인</button>
+    <button onclick="checkPassword()" class="g-recaptcha" data-sitekey="reCAPTCHA_site_key" data-callback='onSubmit' data-action='submit'>로그인</button>
     <p id="message"></p>
 </div>
 
