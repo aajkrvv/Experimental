@@ -5,7 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>비밀번호 입력</title>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-<div class="g-recaptcha" data-sitekey="6LfpB0cqAAAAALUoLn1hvzA4HfxYvlnuz3JIH0ta"></div>
+    <script>
+        function onSubmit(e) {
+            e.preventDefault(); // 기본 폼 제출을 방지
+            const recaptchaResponse = grecaptcha.getResponse();
+            if (recaptchaResponse.length === 0) {
+                alert("리캡챠를 확인해 주세요.");
+                return;
+            }
+
+            // 비밀번호 체크 및 폼 제출
+            checkPassword();
+        }
+
+        function checkPassword() {
+            const correctPassword = "152536"; // 미리 저장된 비밀번호
+            const inputPassword = document.getElementById('password').value;
+            const messageElement = document.getElementById('message');
+            
+            if (inputPassword === correctPassword) {
+                window.location.href = "home.html"; // 비밀번호가 맞으면 home.html로 이동
+            } else {
+                messageElement.style.color = "red";
+                messageElement.textContent = "비밀번호가 틀렸습니다.";
+            }
+        }
+    </script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -52,27 +77,16 @@
 
 <div class="login-container">
     <h2>비밀번호 입력</h2>
-    <input type="password" id="password" placeholder="비밀번호를 입력하세요" required>
-    <br>
-    <button onclick="checkPassword()" class="g-recaptcha" data-sitekey="reCAPTCHA_site_key" data-callback='onSubmit' data-action='submit'>로그인</button>
-    <p id="message"></p>
+    <form id="demo-form">
+        <input type="password" id="password" placeholder="비밀번호를 입력하세요" required>
+        <br>
+        <button class="g-recaptcha" 
+            data-sitekey="6LfpB0cqAAAAALUoLn1hvzA4HfxYvlnuz3JIH0ta" 
+            data-callback='onSubmit' 
+            data-action='submit'>로그인</button>
+        <p id="message"></p>
+    </form>
 </div>
-
-<script>
-    const correctPassword = "152536"; // 미리 저장된 비밀번호
-
-    function checkPassword() {
-        const inputPassword = document.getElementById('password').value;
-        const messageElement = document.getElementById('message');
-        
-        if (inputPassword === correctPassword) {
-            window.location.href = "home.html"; // 비밀번호가 맞으면 home.html로 이동
-        } else {
-            messageElement.style.color = "red";
-            messageElement.textContent = "비밀번호가 틀렸습니다.";
-        }
-    }
-</script>
 
 </body>
 </html>
