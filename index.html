@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>비밀번호 입력</title>
+     <script src="https://www.google.com/recaptcha/api.js"></script>
+      <script>
+   function onSubmit(token) {
+     document.getElementById("demo-form").submit();
+   }
+ </script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -52,12 +58,15 @@
     <h2>비밀번호 입력</h2>
     <input type="password" id="password" placeholder="비밀번호를 입력하세요" required>
     <br>
-    <button onclick="checkPassword()">로그인</button>
+    <button class="g-recaptcha" 
+        data-sitekey="756e16943bb68734d072d1df16a4899fc869d0d3" 
+        data-callback='onSubmit' 
+        data-action='submit' onclick="checkPassword()">로그인</button>
     <p id="message"></p>
 </div>
 
 <script>
-    const correctPassword = "152536"; // 미리 저장된 비밀번호(보안따윈 생각하지 않는다)
+    const correctPassword = "152536"; // 미리 저장된 비밀번호(보안 따윈 생각하지 않는다)
 
     function checkPassword() {
         const inputPassword = document.getElementById('password').value;
