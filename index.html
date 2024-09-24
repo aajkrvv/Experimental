@@ -10,6 +10,7 @@
      document.getElementById("demo-form").submit();
    }
  </script>
+ <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -57,6 +58,8 @@
 <div class="login-container">
     <h2>비밀번호 입력</h2>
     <input type="password" id="password" placeholder="비밀번호를 입력하세요" required>
+    <br>
+    <div class="g-recaptcha" data-sitekey="6LcWw00qAAAAADow0-uMOSQchD_3zGDfXda15WYf"></div>
     <br>
     <button class="g-recaptcha" 
         data-sitekey="6LfpB0cqAAAAALUoLn1hvzA4HfxYvlnuz3JIH0ta" 
