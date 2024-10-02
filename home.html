@@ -28,10 +28,11 @@
             <p style="color: rgb(238, 38, 231);">집가고 싶다</p>
         </div>
         <a href="https://www.naver.com">네이버로 이동</a>
-        <form name="contact" method="POST" data-netlify="true" action="home.html">
+        <form name="contact" method="POST" data-netlify="true" action="home.html" data-netlify-recaptcha="true">
   <p>
-    <label>from 시용하기: <textarea name="message"></textarea></label>
+    <label>from 사용하기: <textarea name="message"></textarea></label>
   </p>
+  <div data-netlify-recaptcha="true"></div>
   <p>
     <button type="submit">Send</button>
   </p>
